@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('../static/img/background-image.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Admin Dashboard</h1>
+
+        <h2>Booked Slots</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User ID</th>
+                    <th>Center ID</th>
+                    <th>Booked Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for slot in booked_slots %}
+                <tr>
+                    <td>{{ slot[0] }}</td>
+                    <td>{{ slot[1] }}</td>
+                    <td>{{ slot[2] }}</td>
+                    <td>{{ slot[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Vaccination Centers</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Timings</th>
+                    <th>Availability</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for center in vaccination_centers %}
+                <tr>
+                    <td>{{ center[0] }}</td>
+                    <td>{{ center[1] }}</td>
+                    <td>{{ center[2] }}</td>
+                    <td>{{ center[3] }}</td>
+                    <td>
+                        <form method="POST" action="{{ url_for('remove_vaccination_center') }}">
+                            <input type="hidden" name="center_id" value="{{ center[0] }}">
+                            <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ url_for('add_vaccination_center') }}" class="btn btn-primary">Add Vaccination Center</a>
+
+        <a href="{{ url_for('admin_logout') }}" class="btn btn-secondary">Logout</a>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

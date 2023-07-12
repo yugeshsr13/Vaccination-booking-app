@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('../static/img/background-image.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">User Dashboard</h1>
+
+        <section id="booked-slots">
+            <h2>Booked Slots</h2>
+            {% if booked_slots %}
+                <ul>
+                    {% for slot in booked_slots %}
+                        <li>{{ slot[3] }} - Center ID: {{ slot[2] }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No booked slots.</p>
+            {% endif %}
+        </section>    
+
+        <section id="vaccination-centers">
+            <h2>Vaccination Centers</h2>
+            {% if vaccination_centers %}
+                <ul>
+                    {% for center in vaccination_centers %}
+                        <li>
+                            Name: {{ center.name }}<br>
+                            Timings: {{ center.timings }}<br>
+                            Availability: {% if center.availability > 0 %}{{ center.availability }}{% else %}Fully Booked{% endif %}
+                            <form action="/book_slot/{{ center.id }}" method="POST">
+                                <input type="submit" value="Book Slot" class="btn btn-primary">
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No vaccination centers.</p>
+            {% endif %}
+        </section>
+
+        <section id="logout">
+            <a href="/user/logout" class="btn btn-secondary">Logout</a>
+        </section>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Slot</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('../static/img/background-image.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Book Slot</h1>
+
+        <form action="/book_slot/{{ center_id }}" method="POST">
+            <input type="hidden" name="user_id" value="{{ user_id }}">
+
+            <h2>Center ID: {{ center_id }}</h2>
+            <p>Confirm booking for this slot?</p>
+
+            <input type="submit" value="Book Slot" class="btn btn-primary">
+        </form>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

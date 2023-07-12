@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disclaimer and Report</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 20px;
+            background-image: url('../static/img/background-image.jpg');
+            background-size: cover;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Disclaimer</h1>
+
+        <p>This website is for DevRev round 2 purposes only and the contents are not original.</p>
+        <p>The provided admin access: <strong>Email: admin@example.com, Password: admin@1234</strong></p>
+        <p>The content is sourced from public platforms and we do not claim ownership.</p>
+        <p>We do not guarantee the accuracy of the information.</p>
+        <p>Users are responsible for their actions and we are not liable for any damages or losses.</p>
+        <p>We do not endorse external links.</p>
+        <p>This disclaimer is subject to change without notice.</p>
+        
+        <h1 class="text-center mt-4">Report</h1>
+
+        <h2>Overview:</h2>
+        <p>The Covid Vaccination Booking web application is designed to facilitate the process of booking vaccination slots. It includes separate functionalities for users and administrators, providing a user-friendly interface.</p>
+
+        <h2>Tools and Technologies:</h2>
+        <p>The application is developed using the following tools and technologies:</p>
+        <ul>
+            <li>Backend: Flask (Python framework)</li>
+            <li>Database: SQLite</li>
+            <li>Frontend: HTML, CSS (Bootstrap)</li>
+            <li>Email Service: SendGrid</li>
+        </ul>
+
+        <h2>User Use Cases:</h2>
+        <ul>
+            <li>Login: Users can log in using their credentials to access the application.</li>
+            <li>Sign up: Users can register with appropriate data validations.</li>
+            <li>Search for Vaccination Centre and Working Hours: Users can search for vaccination centers and view their operating hours.</li>
+            <li>Apply for a Vaccination Slot: Users can apply for a slot, with a limit of 10 candidates per day for each center.</li>
+            <li>Logout: Users can safely log out of their accounts.</li>
+        </ul>
+
+        <h2>Admin Use Cases:</h2>
+        <ul>
+            <li>Login: Admin users have a separate login interface to access the admin dashboard.</li>
+            <li>Add Vaccination Centres: Admins can add new vaccination centers to the system.</li>
+            <li>Get Dosage Details: Admins can view dosage details, grouped by vaccination centers.</li>
+            <li>Remove Vaccination Centres: Admins have the authority to remove vaccination centers from the system.</li>
+        </ul>
+
+        <h2>Data Validation:</h2>
+        <ul>
+            <li>The application performs data validations during user sign-up to ensure accurate information is provided.</li>
+            <li>It enforces a maximum limit of 10 candidates per day for each vaccination center to manage availability effectively.</li>
+        </ul>
+
+        <h2>SendGrid Integration:</h2>
+        <ul>
+            <li>The application integrates SendGrid, an email service, to send confirmation emails to users upon successful slot booking.</li>
+            <li>Users receive confirmation emails containing details of their booked slot.</li>
+        </ul>
+
+        <h2>User Interface:</h2>
+        <ul>
+            <li>The frontend of the application is implemented using HTML and CSS, with the Bootstrap framework for responsiveness and styling.</li>
+            <li>The UI provides a user-friendly experience and intuitive navigation.</li>
+        </ul>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

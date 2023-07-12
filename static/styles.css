@@ -1,0 +1,11 @@
+/* styles.css */
+
+.user-bg {
+    background-image: url('../static/img/user-bg.jpg');
+    background-size: cover;
+}
+
+.admin-bg {
+    background-image: url('../static/img/admin-bg.jpg');
+    background-size: cover;
+}

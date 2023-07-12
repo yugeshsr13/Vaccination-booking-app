@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vaccination Centers</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('../static/img/background-image.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Vaccination Centers</h1>
+
+        <form action="/vaccination_centers" method="POST">
+            <div class="form-group">
+                <label for="search_query">Search:</label>
+                <input type="text" name="search_query" class="form-control" required>
+                <input type="submit" value="Search" class="btn btn-primary">
+            </div>
+        </form>
+
+        <h2>Search Results</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Timings</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for center in centers %}
+                    <tr>
+                        <td>{{ center.name }}</td>
+                        <td>{{ center.timings }}</td>
+                        <td>{{ center.availability }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
