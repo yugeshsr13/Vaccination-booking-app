@@ -5,7 +5,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '1206'
+app.config['SECRET_KEY'] = '####'
 
 # Database initialization
 DATABASE = 'vaccine_booking.db'
@@ -57,14 +57,14 @@ def create_tables():
     # Create admin user if it doesn't exist
     if not admin_user:
         cursor.execute("INSERT INTO users (name, email, password, user_type, gender, date_of_birth, phone_number, vaccination_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-                       ('Admin', 'admin@example.com', 'admin@1234', 'admin', 'Male', '1990-01-01', '1234567890', 'Yes'))
+                       ('Admin', 'admin@example.com', 'admin@1234', 'admin', 'Male', '2000-01-01', '1234567890', 'Yes'))
 
     conn.commit()
     conn.close()
 
 # SendGrid configuration
-SENDGRID_API_KEY = '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'
-SENDER_EMAIL = 'yugeshsundram.aids20@veltechmultitech.org'
+SENDGRID_API_KEY = 'My_key'
+SENDER_EMAIL = 'sender_mailid@gmail.com'
 
 def send_email(recipient_email, subject, content):
     message = Mail(
@@ -353,4 +353,4 @@ def admin_logout():
 
 if __name__ == '__main__':
     create_tables()
-    app.run(debug=True)
+    app.run()
